@@ -5,7 +5,6 @@
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="modal.css" />
-    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
@@ -18,8 +17,7 @@
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
+      <!-- <a href="#" class="active"><span>Accueil</span></a> -->
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
@@ -59,7 +57,6 @@
           <div class="modal-body">
             <form
               name="reserve"
-              method="get"
             >
               <div
                 class="formData">
@@ -111,71 +108,77 @@
               <div
                 class="formData">
                 <input
-                  class="checkbox-input"
+                  class="radio-input"
                   type="radio"
                   id="location1"
                   name="location"
                   value="New York"
                 />
-                <label class="checkbox-label" for="location1">
-                  <span class="checkbox-icon"></span>
+                
+                <span class="radio-icon"></span>
+                <label class="radio-label" for="location1">
                   New York</label
-                >
+                  >
                 <input
-                  class="checkbox-input"
+                  class="radio-input"
                   type="radio"
                   id="location2"
                   name="location"
                   value="San Francisco"
                 />
-                <label class="checkbox-label" for="location2">
-                  <span class="checkbox-icon"></span>
+                
+                <span class="radio-icon"></span>
+                <label class="radio-label" for="location2">
                   San Francisco</label
-                >
+                  >
                 <input
-                  class="checkbox-input"
+                  class="radio-input"
                   type="radio"
                   id="location3"
                   name="location"
                   value="Seattle"
                 />
-                <label class="checkbox-label" for="location3">
-                  <span class="checkbox-icon"></span>
+                
+                <span class="radio-icon"></span>
+                <label class="radio-label" for="location3">
                   Seattle</label
-                >
+                  >
                 <input
-                  class="checkbox-input"
+                  class="radio-input"
                   type="radio"
                   id="location4"
                   name="location"
                   value="Chicago"
                 />
-                <label class="checkbox-label" for="location4">
-                  <span class="checkbox-icon"></span>
+                
+                <span class="radio-icon"></span>
+                <label class="radio-label" for="location4">
                   Chicago</label
-                >
+                  >
                 <input
-                  class="checkbox-input"
+                  class="radio-input"
                   type="radio"
                   id="location5"
                   name="location"
                   value="Boston"
                 />
-                <label class="checkbox-label" for="location5">
-                  <span class="checkbox-icon"></span>
+                
+                <span class="radio-icon"></span>
+                <label class="radio-label" for="location5">
                   Boston</label
-                >
+                  >
                 <input
-                  class="checkbox-input"
+                  class="radio-input"
                   type="radio"
                   id="location6"
                   name="location"
                   value="Portland"
                 />
-                <label class="checkbox-label" for="location6">
-                  <span class="checkbox-icon"></span>
+                
+                <span class="radio-icon"></span>
+                <label class="radio-label" for="location6">
                   Portland</label
-                >
+                  >
               </div>
 
               <div
@@ -199,12 +202,6 @@
                 <br>
               </div>
               <button type="submit" class="btn-submit">C'est parti</button>
-              <!-- <input
-                class="btn-submit"
-                type="submit"
-                class="button"
-                value="C'est parti"
-              /> -->
             </form>
           </div>
         </div>
@@ -216,6 +213,5 @@
       </p>
     </footer>
     <script src="modal.js"></script>
-    <!-- <script src="./js/form.js"></script> -->
   </body>
 </html>
