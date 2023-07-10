@@ -198,7 +198,7 @@ label {
 }
 input {
   padding: 8px;
-  /* border: 0.8px solid #ccc; */
+  border: none;
   outline: none;
 }
 .text-control {
@@ -211,31 +211,28 @@ input {
 }
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 0.6em;
   color: #e54858;
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
   transition: 0.3s;
 }
-/* .formData[data-error-visible="true"]::after {
-  opacity: 1;
-} */
-/* .formData[data-error-visible="true"] .text-control {
+.formData[data-error-visible="false"]::after {
+  opacity: 0;
+}
+.formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
-} */
-/* 
-span[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.6em;
-    color: red;
-} */
+}
+input:checked + .radio-label {
+  color: #279e7a;
+}
 .radio-label {
   font-size: 12px;
   position: relative;
-  left: -5px;
+  left: 5px;
   font-weight: normal;
 }
 .radio-input:checked {
@@ -247,23 +244,11 @@ span[data-error]::after {
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  left: -5px;
+  left: 5px;
   top: 5px;
   outline-offset: 4px;
   outline: 1px solid #279e7a;
 }
-/* .radio-icon {
-  display: block;
-  position: relative;
-} */
-/* .radio-icon {
-  background-color: #279e7a;
-  width: 20px;
-  height: 20px;
-  left: -30px;
-  top: -30px;
-  border-radius: 50%;
-}  */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
