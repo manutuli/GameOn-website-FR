@@ -8,29 +8,30 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
 
+/* Landing Page */
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* background-image: url("bg_img.jpg");
-  background-size: cover; */
+  /* background-image: url("bg_img.jpg"); */
+  /* background-size: cover; */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
 }
-
 p {
   margin-bottom: 0;
   padding: 0.5vw;
 }
-
 img {
   padding-right: 1rem;
+  object-fit: cover;
 }
-
+.hide {
+  display: none;
+}
 .topnav {
   overflow: hidden;
   margin: 3.5%;
@@ -52,31 +53,29 @@ img {
   font-size: 20px;
   font-family: Roboto, sans-serif;
 }
-
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
 }
-
 .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
 }
-
 .topnav .icon {
   display: none;
 }
 
+/* responsive */
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+    color: #ff0000;
   }
 }
-
 @media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
@@ -90,9 +89,6 @@ img {
     text-align: left;
   }
 }
-
-
-
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -112,10 +108,7 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
-
 .modal-btn {
   font-size: 145%;
   background: #fe142f;
@@ -127,11 +120,17 @@ main {
   border-radius: 1rem;
   cursor: pointer;
 }
-
 .modal-btn:hover {
   background: #3876ac;
 }
-
+p.confirmation {
+  font-size: 36px;
+  font-family: "DM Sans";
+  text-align: center;
+  position: relative;
+  top: 175px;
+  line-height: 150%;
+}
 .footer {
   margin: 20px;
   padding: 10px;
@@ -139,8 +138,7 @@ main {
 }
 
 /* Modal form */
-
-.button {
+.btn {
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -149,17 +147,13 @@ main {
   cursor: pointer;
   font-size: 16px;
 }
-
-.button:hover {
+.btn:hover {
   background: #3876ac;
 }
-
 .smFont {
   font-size: 16px;
 }
-
 .bground {
-  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -169,7 +163,6 @@ main {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
-
 .content {
   margin: 5% auto;
   width: 100%;
@@ -183,15 +176,14 @@ main {
   color: #fff;
   padding-top: 10px;
 }
-
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  min-height: 70vh;
 }
-
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -206,7 +198,7 @@ input {
   padding: 8px;
   width: 100%;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 14px;
   height: 48px;
 }
 .formData[data-error]::after {
@@ -313,7 +305,7 @@ input:checked + .radio-label {
   left: 21%;
   top: 19%;
 }
-.close {
+span.closeModal {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -323,8 +315,8 @@ input:checked + .radio-label {
   cursor: pointer;
   transform: scale(0.7);
 }
-.close:before,
-.close:after {
+span.closeModal:before,
+span.closeModal:after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -332,14 +324,17 @@ input:checked + .radio-label {
   width: 3px;
   background-color: #fff;
 }
-.close:before {
+span.closeModal:before {
   transform: rotate(45deg);
 }
-.close:after {
+span.closeModal:after {
   transform: rotate(-45deg);
 }
-.btn-submit,
-.btn-signup {
+button.closeModal {
+  position: relative;
+  top: -20px;
+}
+button {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -350,6 +345,7 @@ input:checked + .radio-label {
   cursor: pointer;
   border: 0;
 }
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -357,7 +353,6 @@ input:checked + .radio-label {
   font-size: 1.1rem;
   font-weight: normal;
 }
-
 .custom-select select {
   display: none;
 }
@@ -385,7 +380,6 @@ input:checked + .radio-label {
   transform: rotate(135deg);
   top: 13px;
 }
-
 .select-items div,
 .select-selected {
   color: #000;
@@ -411,11 +405,11 @@ input:checked + .radio-label {
 .select-hide {
   display: none;
 }
-
 .select-items div:hover,
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 /* custom select end */
 .text-label {
   font-weight: normal;
@@ -495,6 +489,8 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+/* responsive */
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -534,6 +530,7 @@ footer {
   }
 }
 
+/* animation */
 @keyframes modalopen {
   from {
     opacity: 0;
