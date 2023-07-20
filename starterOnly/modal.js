@@ -53,16 +53,17 @@ form.addEventListener("submit", (e)=>{
   e.preventDefault()
   // 
   const regex = new RegExp(/^(([a-z0-9]+)(\.?)([a-z0-9]+)(@)([a-z0-9]+)\.[a-z]{2,3})$/)
+  const regNums = new RegExp(/([0-9])/)
   const fData = new FormData(form)
   // 
-  if (!fData.get("first") || fData.get("first").length < 2) {
+  if (!fData.get("first") || fData.get("first").length < 2 || regNums.test(fData.get("first"))) {
     displayFormError("veuillez entrer 2 caractères ou plus pour le champs du prénom", 0 )
   } else {
     hideFormError(0)
     isValid.first = true
   }
   // 
-  if (!fData.get("last") || fData.get("last").length < 2) {
+  if (!fData.get("last") || fData.get("last").length < 2 || regNums.test(fData.get("last"))) {
     displayFormError("veuillez entrer 2 caractères ou plus pour le champs du nom.", 1 )
   } else {
     hideFormError(1)
@@ -103,7 +104,7 @@ form.addEventListener("submit", (e)=>{
     hideFormError(6)
     isValid.checkbox = true
   }
-  
+  // 
   if (
     isValid.first &&
     isValid.last &&
@@ -114,22 +115,48 @@ form.addEventListener("submit", (e)=>{
     isValid.checkbox 
     ) 
   {
-    window.localStorage.clear()
-    for (pair of fData.entries()) {
-      window.localStorage.setItem(`${pair[0]}`, `${pair[1]}`)
+    // window.localStorage.clear()
+    // for (pair of fData.entries()) {
+    //   window.localStorage.setItem(`${pair[0]}`, `${pair[1]}`)
+    // }
+    // 
+    const hiddenMessage = document.querySelector("p.confirmation.hide")
+    const hiddenClose = document.querySelector("button.closeModal.hide")
+    if (hiddenMessage) {
+      // show confirmation
+      hiddenMessage.classList.toggle("hide")
+      hiddenClose.classList.toggle("hide")
+      // show form
+      for (const value in isValid) {isValid[value] = false}
+      form.classList.toggle("hide")
+    } else {
+      // create confirmation
+      const msg = document.createElement("p")
+      const close = document.createElement("button")
+      msg.innerText = "Merci pour votre inscription"
+      close.innerText = "Fermer"
+      // hide form
+      form.classList.toggle("hide")
+      close.classList.add("closeModal")
+      msg.classList.add("confirmation")
+      close.addEventListener('click', function () {
+        form.reset() 
+        for (let i = 0 ; i <= 6 ; i++) {
+          hideFormError(i)
+        }
+        // hide confirmation
+        msg.classList.toggle("hide")
+        close.classList.toggle("hide")  
+        // show form
+        form.classList.toggle("hide")
+        // close modal
+        toggleModal()
+      })
+      // add confirmation
+      modalBody.append(msg)
+      modalContent.append(close)
+      for (const value in isValid) {isValid[value] = false}
     }
-    // 
-    form.classList.toggle("hide")
-    const msg = document.createElement("p")
-    const close = document.createElement("button")
-    msg.innerText = "Merci pour votre inscription"
-    close.innerText = "Fermer"
-    close.classList.add("closeModal")
-    close.addEventListener('click', toggleModal)
-    msg.classList.add("confirmation")
-    // 
-    modalBody.append(msg)
-    modalContent.append(close)
   }
 })
 
